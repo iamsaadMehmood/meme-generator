@@ -10,15 +10,14 @@ const Meme = () => {
     const [allMemes, setAllMemes] = useState([])
     useEffect(() => {
         const getAllMemes = async () => {
-            fetch(`${API_URL}get_memes`).then(async (res) => {
-                if (res.ok) {
-                    const data = await res.json()
-                    setAllMemes(data.data.memes)
-                }
-                else {
-                    console.log(res.status)
-                }
-            })
+            const res = await fetch(`${API_URL}get_memes`);
+            if (res.ok) {
+                const data = await res.json()
+                setAllMemes(data.data.memes)
+            }
+            else {
+                console.log(res.status)
+            }
         }
         getAllMemes();
 
