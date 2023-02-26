@@ -18,6 +18,7 @@ const Meme = () => {
             else {
                 console.log(res.status)
             }
+
         }
         getAllMemes();
 
